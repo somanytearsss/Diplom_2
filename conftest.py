@@ -10,3 +10,4 @@ def registration_and_delete_user():
     yield payload, response
     access_token = response.json().get('accessToken')
     requests.delete(Urls.url_delete_user, headers={'Authorization': access_token})
+    
