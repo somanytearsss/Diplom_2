@@ -2,6 +2,7 @@ import allure
 import requests
 from data import Urls
 from helpers import generate_random_string
+from conftest import registration_and_delete_user
 
 
 @allure.description('Тестирование класса создания пользователя')

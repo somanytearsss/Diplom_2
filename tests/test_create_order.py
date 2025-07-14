@@ -2,6 +2,7 @@ import allure
 import requests
 from data import Ingredients, Urls
 from helpers import get_access_token
+from conftest import registration_and_delete_user
 
 
 @allure.description('Тестирование класса создания заказа')

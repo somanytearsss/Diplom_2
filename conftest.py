@@ -1,6 +1,5 @@
 import pytest
 import requests
-
 from data import Urls
 from helpers import generate_data_and_create_user
 

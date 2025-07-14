@@ -2,6 +2,7 @@ import allure
 import requests
 from helpers import generate_random_email_password_name
 from data import Urls
+from conftest import registration_and_delete_user
 
 
 @allure.description('Тестирование класса обновления данных пользователя')
