@@ -40,6 +40,7 @@ class TestCreateUser:
         assert response.json()['success'] == False, \
             f"Ожидался ответ False, но получен ответ {response.json()['success']}"
 
+
     @allure.title('Проверка появления ошибки при регистрации без передачи поля password ')
     def test_registration_without_a_password_failed(self):
         payload = {
