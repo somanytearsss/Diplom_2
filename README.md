@@ -19,5 +19,4 @@
 - C авторизацией / Без авторизации
 - С ингредиентами / Без ингредиентов 
 - С неверным хешем ингредиентов
-  
-### Ссылка на API-документацию https://code.s3.yandex.net/qa-automation-engineer/python-full/diploma/api-documentation.pdf?etag=3403196b527ca03259bfd0cb41163a89
+  ### Ссылка на API-документацию https://code.s3.yandex.net/qa-automation-engineer/python-full/diploma/api-documentation.pdf?etag=3403196b527ca03259bfd0cb41163a89
