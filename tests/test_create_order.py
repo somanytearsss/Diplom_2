@@ -12,16 +12,23 @@ class TestCreateOrder:
         payload, response = registration_and_delete_user
         new_payload = {'ingredients': Ingredients.ingredients}
 
-        access_token = get_access_token(response)
+        with allure.step("Получаем токен доступа"):
+            access_token = get_access_token(response)
+
         headers = {
             'Authorization': f'{access_token}',
         }
-        new_response = requests.post(Urls.url_create_order, json=new_payload, headers=headers )
 
-        order = new_response.json()
-        assert new_response.status_code == 200, f"Ожидался статус 200, но получен {new_response.status_code}"
-        assert 'name' in order.keys()
-        assert 'number' in order['order'].keys()
+        with allure.step("Отправляем запрос на создание заказа"):
+            new_response = requests.post(Urls.url_create_order, json=new_payload, headers=headers)
+
+        with allure.step("Проверяем статус ответа"):
+            assert new_response.status_code == 200, f"Ожидался статус 200, но получен {new_response.status_code}"
+
+        with allure.step("Проверяем наличие ключей 'name' и 'number' в ответе"):
+            order = new_response.json()
+            assert 'name' in order.keys(), "Ключ 'name' отсутствует в ответе"
+            assert 'number' in order['order'].keys(), "Ключ 'number' отсутствует в ответе"
 
     @allure.title('Проверяем создание заказа с ингредиентами, когда пользователь не авторизован')
     def test_create_order_to_not_auth_user(self):
