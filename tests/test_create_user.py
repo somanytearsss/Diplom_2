@@ -11,7 +11,9 @@ class TestCreateUser:
     @allure.title('Создаем нового пользователя, через рандом с уникальными данными')
     def test_create_new_user(self, registration_and_delete_user):
         payload, response = registration_and_delete_user
-        assert response.status_code == 200, f"Ожидался статус 200, но получен {response.status_code}"
+
+        with allure.step("Создаем нового пользователя"):
+            assert response.status_code == 200, f"Ожидался статус 200, но получен {response.status_code}"
 
     @allure.title('Проверка невозможности создания уже существующего пользователя')
     def test_cant_create_two_identical_users(self, registration_and_delete_user):
